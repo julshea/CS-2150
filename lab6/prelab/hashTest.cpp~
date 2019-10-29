@@ -1,0 +1,13 @@
+#include "hashTable.h"
+#include "iostream"
+
+using namespace std;
+
+int main(){
+  hashTable h;
+  
+
+
+  
+  return 0;
+}

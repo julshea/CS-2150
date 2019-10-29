@@ -1,0 +1,9 @@
+#!/bin/bash
+#Filename: averagetime.sh
+#Julia Shea - jts6mq - inlab6 - 10/22/19
+
+echo "Please enter the name of the dictionary file:"
+read dictionary
+echo"Please enter the name of the grid file:"
+read grid
+

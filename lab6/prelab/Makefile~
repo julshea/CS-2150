@@ -1,0 +1,18 @@
+#Filename: Makefile
+#Julia Shea - jts6mq - lab6 - 10/20/2019
+
+CXX = g++ -O2
+
+CXXFLAGS = -g 
+
+OFILES = wordPuzzle.o hashTable.o timer.o 
+
+main: $(OFILES)
+	$(CXX) $(OFILES)
+
+clean: 
+	rm *.o
+
+wordPuzzle.o: wordPuzzle.cpp 
+hashTable.o: hashTable.cpp
+timer.o: timer.cpp

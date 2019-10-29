@@ -1,0 +1,27 @@
+//Filename: hashTable.h
+//Julia Shea - jts6mq - lab6 - 10/20/2019
+
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
+
+#include <iostream>
+#include <list>
+#include <vector>
+using namespace std;
+
+class hashTable{
+ public:
+  hashTable(int b); //constructor
+  ~hashTable(); //destructor
+
+  int hashFunction(int x); //maps a value to a key  
+  void insert(); //inserts an element into the hashtable
+
+ private:
+  int numBuckets; //number of secondary arrays in the hashtable
+  vector<int> *table; //pointer to a vector of buckets
+}
+
+
+
+#endif
