@@ -1,0 +1,88 @@
+//filename: inlab4.cpp
+//jts6mq - Julia Shea - lab4 - 9/24/19
+
+#include <iostream>
+#include <climits>
+#include <limits>
+#include <cstddef>
+
+using namespace std;
+
+//function that prints out the max values for each type using the climits header
+void maxValues(){
+  cout << "INT_MIN: "<< INT_MIN << endl;
+  cout << "INT_MAX: "<< INT_MAX << endl;
+
+  cout << "CHAR_MIN: "<< CHAR_MIN << endl;
+  cout << "CHAR_MAX: "<< CHAR_MAX << endl;
+
+  cout << "UINT_MAX: "<< UINT_MAX << endl;
+
+  cout << "DBL_MAX: " << numeric_limits<double>::max() << endl;
+  cout << "FLT_MAX: "<< numeric_limits<float>::max() << endl;
+  
+}
+
+//function that helps illustrate what each variable is stored as in memory
+void storedAs(){
+
+  int a = 0;
+  int aa = 1;
+
+  unsigned int b = 0;
+  unsigned int bb = 1;
+
+  float c = 0.0;
+  float cc = 1.0;
+
+  char d = '0';
+  char dd = '1';
+
+  double e = 0.0;
+  double ee = 1.0;
+
+  bool f = false;
+  bool t = true;
+
+  int *p = NULL;
+  char *h = NULL;
+  double *o = NULL;
+  
+  cout << a  << b << c << d << e << f << endl;
+  cout << aa << bb << cc << dd << ee << t << endl;
+  cout << *p << *h << *o << endl;
+  
+}
+
+//begin representation in memory section of lab4:
+
+void memoryRepresentation(){
+   bool myBool = true;
+   char myChar = 'a';
+   int myInt = 75;
+   double myDouble = 3.5;
+   int* myPointer = &myInt;
+
+   cout << myBool<<myChar<<myInt<<myDouble<<myPointer<< endl;
+  
+}
+
+int main(){
+  memoryRepresentation();
+  return 0;
+
+}
+
+
+//begin primitive arrays section of lab4:
+
+//declaration and initialization of one-dimensional arrays
+int IntArray[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+char CharArray[10] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'};
+
+//declaration of 2 dimensional arrays
+int IntArray2D[6][5] = {{11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 24, 25}, {26, 27, 28, 29, 30}, {31, 32, 33, 34, 35}, {36, 37, 38, 39, 40}};
+
+char CharArray2D[6][5] = {{'k', 'l', 'm', 'n', 'o'}, {'p', 'q', 'r', 's', 't'}, {'u', 'v', 'w', 'x', 'y'}, {'z', '=', '+', '-', '/'}, {'*', '<', '>', '?', '!'}, {'#', '$', '(', ')', '%'}} ;
+
+

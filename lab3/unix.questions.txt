@@ -1,0 +1,3 @@
+Although I understand and can generally work with the terminal commands on my Linux VirtualBox, I'm still confused about the functional differences between a Windows and Unix system. Is it just that Windows always has a GUI to assist with operations while Unix systems may not in some cases?
+
+Having used a Mac since I began coding, which I know has runs a variation of Unix, I don't have any experience with the alternative Windows environment. 

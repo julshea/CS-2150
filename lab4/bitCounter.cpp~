@@ -1,0 +1,6 @@
+//filename: bitCounter.cpp
+//jtsmq - Julia Shea- lab4 - 9/25
+
+#include <iostream>
+using namespace std;
+

@@ -1,0 +1,36 @@
+//Filename: postfixCalculator.h- Julia Shea-jts6mq-9/14-lab3
+
+#ifndef POSTFIXCALCULATOR_H
+#define POSTFIXCALCULATOR_H
+
+#include <iostream>
+#include <cstdlib>
+#include "stack.h"
+#include "stackNode.h"
+#include "postfixCalculator.h"
+using namespace std;
+
+
+class postfixCalculator {
+ public:
+
+  postfixCalculator(); //constructor
+
+  //calculator functions 
+  void add(); 
+  void subtract(); //y-x
+  void multiply();
+  void divide(); //y/x
+  void negate();
+
+  //stack functions
+  void pushValue(int e);
+  int getTopValue();
+  void removeTopValue();
+  bool isEmpty();
+
+ private:
+  Stack s;
+};
+
+#endif

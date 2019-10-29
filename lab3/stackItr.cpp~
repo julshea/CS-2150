@@ -1,0 +1,10 @@
+//filename: stack.cpp
+//jts6mq - Julia Shea - lab3 - 9/18
+
+#include "stack.h"
+#include "stackNode.h"
+#include "stackItr.h"
+#include <iostream>
+using namespace std;
+
+//default constructor

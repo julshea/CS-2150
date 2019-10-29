@@ -1,0 +1,4 @@
+Filename: difficulties.txt - jts6mq - Julia Shea- lab3 - 9/19
+
+One of the biggest challenges I faced during this project was figuring out how to implement the stack class through a linked list. I wanted to make my own linked list and not reuse my code from lab 2, but I wasn't sure where to begin so I made a stack class, a stacknode class, and a stackitr class.
+Whenever I tried to use the iterator, my code seg faulted. This was extremely frustrating, until I pinpointed the error as being in the iterator class I had written to deal with the stack pop() and top() functions. Upon further thought, I realized that I didn't need an iterator to perform the tasks I wanted, because the pointer was always at the top of the stack. I got rid of that class, rewrote my top() and pop() functions accordingly, and they then worked without a seg fault.
