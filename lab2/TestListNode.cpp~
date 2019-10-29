@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+#include "ListNode.h"
+
+int main(){
+  ListNode *k = new ListNode(value = NULL, next = NULL, previous = NULL);
+  cout << k;
+}

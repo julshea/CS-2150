@@ -1,0 +1,142 @@
+//filename: List.cpp
+//jts6mq, 9/8
+#include "List.h"
+#include <iostream>
+using namespace std;
+
+//default constructor, initialize to an empty list
+List::List(){
+ head=new ListNode;
+ tail=new ListNode;
+ head->next=tail;
+ tail->previous=head;
+ count=0;
+}
+
+//copy constructor
+List::List(const List& source) {
+    head=new ListNode;
+    tail=new ListNode;
+    head->next=tail;
+    tail->previous=head;
+    count=0;
+    ListItr iter(source.head->next);
+    while (!iter.isPastEnd()) {       // deep copy of the list
+        insertAtTail(iter.retrieve());
+        iter.moveForward();
+    }
+}
+
+
+//destructor
+List::~List(){
+}
+	   
+//overloaded equals method 
+List& List::operator=(const List& source) {
+    if (this == &source)
+        return *this;
+    else {
+        makeEmpty();
+        ListItr iter(source.head->next);
+        while (!iter.isPastEnd()) {
+            insertAtTail(iter.retrieve());
+            iter.moveForward();
+        }
+    }
+    return *this;
+}
+
+
+//returns true if the list is empty, returns false if not
+bool List::isEmpty() const {
+  if(count == 0){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+void List:: makeEmpty(){
+  ListItr *itr = new ListItr(head);
+  if(count != 0){
+  while(itr->isPastEnd() == false){
+      itr->moveForward();
+      delete itr->current;
+    }
+  }
+  else{
+    cout << "This list is empty!" << endl;
+  }
+}
+//returns an iterator that points to the ListNode in the first position
+ListItr List::first(){
+  return ListItr(head->next);
+}
+
+//returns an iterator that points to the ListNode in the last position
+ListItr List::last(){
+  return ListItr(tail->previous);
+}
+
+
+//inserts x after the current iterator position
+void List::insertAfter(int x, ListItr position){
+  ListNode *node = new ListNode();
+  node->value = x;
+  position.current->next->previous = node; 
+  node->next = position.current->next; //sets the node's field "next" to the iterator's next node 
+  node->previous = position.current; //sets the node's field "previous" to the iterator's current position
+  position.current->next = node; //places the node after the current position of the iterator
+  count++; //increment the total node count by 1 
+}
+
+//inserts x before the current iterator position
+void List::insertBefore(int x, ListItr position){
+  ListNode *node = new ListNode();
+  node->value = x;
+  position.current->next->previous = node; 
+  node->previous = position.current->previous; //sets the node's field "previous" to the iterator's prev. node
+  node->next = position.current; //sets the node's field "next" to the iterator's current position
+  position.current->previous = node; //places the node before the current position of the iterator
+  count++; //increment the total node count by 1 
+}
+
+//inserts x right before the tail node
+void List::insertAtTail(int x){
+  ListNode *node = new ListNode();
+  node->value = x;
+  node->next = tail;
+  tail->previous = node;
+  count++;
+}
+
+//removes the first occurence of x
+void List::remove(int x){
+  ListItr *itr = new ListItr(head);
+  while(itr->current->value != x){
+      itr->moveForward();
+  }
+  itr->current->next->previous = itr->current->previous; 
+  itr->current->previous->next = itr->current->next;
+  delete itr->current;
+  count--;
+}
+
+//returns an iterator that points to the first occurence of x
+ListItr List::find(int x){
+  ListItr *itr = new ListItr(head);
+  while (!itr->isPastEnd()){
+    if(itr->current->value == x){
+      return *itr;
+    }
+    itr->current = itr->current->next;
+  }
+  return tail->next;
+}
+
+//returns the number of elements in the list (does not include the dummy head/tail)
+int List::size() const {
+  return count;
+}

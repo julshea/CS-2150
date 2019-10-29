@@ -1,0 +1,12 @@
+// Filename: ListNode.cpp
+//jts6mq, 9/8
+
+#include "ListNode.h"
+#include <iostream>
+using namespace std;
+
+//default constructor
+// ListNode::ListNode() : value(0), next(NULL), previous(NULL){
+// }
+ListNode::ListNode(){
+}
